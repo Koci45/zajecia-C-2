@@ -1,16 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct Student {
+typedef struct {
     char imie[50];
     float ocena;
-};
+} Student;
 
-void sortuj_studentow(struct Student *students, int rozmiar) {
+void sortuj_studentow(Student *students, int rozmiar) {
     for (int i = 0; i < rozmiar - 1; i++) {
         for (int j = 0; j < rozmiar - i - 1; j++) {
             if (students[j].ocena < students[j+1].ocena) {
-                struct Student temp = students[j];
+                Student temp = students[j];
                 students[j] = students[j+1];
                 students[j+1] = temp;
             }
@@ -19,7 +19,7 @@ void sortuj_studentow(struct Student *students, int rozmiar) {
 }
 
 int main() {
-    struct Student studenci[10] = {
+    Student studenci[10] = {
         {"Jan Kowalski", 4.5},
         {"Anna Nowak", 3.75},
         {"Adam Wisniewski", 5.0},
